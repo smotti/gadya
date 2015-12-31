@@ -12,8 +12,8 @@ Gadya is sanskrit for prose.
 
 # Tangle and Weave
 
-The project is and the code is maintained with emacs and org-mode, thus you can
-open the .org file and export the document in any format you like or tangel the
+The project and the code is maintained with emacs and org-mode, thus you can
+open the .org file and export the document in any format you like or tangle the
 code again yourself.
 Or you can use pdflatex/texi2dvi/xelatex or other tools to either produce a
 PDF from the available .tex file or a document in another format.

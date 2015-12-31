@@ -1,5 +1,18 @@
-#+OPTIONS: 
+#+OPTIONS: toc:nil
 #+LATEX_HEADER: \usepackage[parfill]{parskip}
+#+LATEX_HEADER: \setlength{\oddsidemargin}{0cm}
+#+LATEX_HEADER: \setlength{\evensidemargin}{0cm}
+#+LATEX_HEADER: \setlength{\topmargin}{0cm}
+#+LATEX_HEADER: \addtolength{\topmargin}{-\headheight}
+#+LATEX_HEADER: \addtolength{\topmargin}{-\headsep}
+#+LATEX_HEADER: \setlength{\textheight}{22.6cm}
+#+LATEX_HEADER: \setlength{\textwidth}{16.51cm}
+#+LATEX_HEADER: \setlength{\marginparwidth}{1.27cm}
+
+\pagenumbering{roman}
+#+TOC: headlines 3
+\newpage
+\pagenumbering{arabic}
 
 * The problem we are trying to solve
 Right now most of the literate programming solutions require either a specific

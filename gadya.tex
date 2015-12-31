@@ -1,4 +1,4 @@
-% Created 2015-12-31 Thu 14:31
+% Created 2015-12-31 Thu 16:26
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,6 +16,14 @@
 \usepackage{hyperref}
 \usepackage{minted}
 \usepackage[parfill]{parskip}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{0cm}
+\addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
+\setlength{\textheight}{22.6cm}
+\setlength{\textwidth}{16.51cm}
+\setlength{\marginparwidth}{1.27cm}
 \date{\today}
 \title{}
 \hypersetup{
@@ -27,8 +35,11 @@
  pdflang={English}}
 \begin{document}
 
+\pagenumbering{roman}
+\setcounter{tocdepth}{3}
 \tableofcontents
-
+\newpage
+\pagenumbering{arabic}
 
 \section{The problem we are trying to solve}
 \label{sec:orgheadline1}
