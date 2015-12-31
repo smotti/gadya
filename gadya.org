@@ -9,10 +9,10 @@
 #+LATEX_HEADER: \setlength{\textwidth}{16.51cm}
 #+LATEX_HEADER: \setlength{\marginparwidth}{1.27cm}
 
-\pagenumbering{roman}
+#+LATEX: \pagenumbering{roman}
 #+TOC: headlines 3
-\newpage
-\pagenumbering{arabic}
+#+LATEX: \newpage
+#+LATEX: \pagenumbering{arabic}
 
 * The problem we are trying to solve
 Right now most of the literate programming solutions require either a specific
