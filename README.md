@@ -6,6 +6,10 @@ literate programming.
 **NOTE: This is a work in progress, any feedback, ideas or pull requests are
 welcome!**
 
+# What does gadya mean?
+
+Gadya is sanskrit for prose.
+
 # Tangle and Weave
 
 The project is and the code is maintained with emacs and org-mode, thus you can
