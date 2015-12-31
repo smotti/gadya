@@ -24,3 +24,7 @@ If you want to contribute you should at least be familiar with emacs, org-mode
 and latex.
 
 TODO: More details here
+
+# License
+
+MIT
