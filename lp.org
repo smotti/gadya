@@ -1,0 +1,118 @@
+#+OPTIONS: 
+#+LATEX_HEADER: \usepackage[parfill]{parskip}
+
+* The problem we are trying to solve
+Right now most of the literate programming solutions require either a specific
+editor or work only in the framework of a specific language. Thus we'd like to
+have an editor agnostic and language agnostic way of doing literate programming.
+Of course there are language agnostic tools to do literate programming and they
+certainly will be used as a reference point for our solution. We also will take
+a look at them and how to use them with the editors vim and/or emacs. Another
+feature we want to have is syntax highlighting and fast feedback of the written
+code (i.e. compile->execute, repl). Thus it's desirable to write code as we are
+used to. But how is that literate programming? So we need to solve the problem
+of untangling the written code to merge it with the documentation, that we
+then can weave.
+
+* First idea
+We want to write code as we are used to, but we also want to document the
+why and how of the code in terms of literate programming. To do this we define
+a language whose symbols are used in the code's comments to specify code
+fragements. An example using Go[fn:1] as programming language:
+
+#+BEGIN_src go
+//@scrap name [OPTS]
+func doSomething() {
+...
+}
+//@scrap
+#+END_SRC
+
+The @scrap directive is used to mark a named section of the written code
+which then can be used in the documentation to refer to this code. Here an
+example:
+
+#+BEGIN_src latex
+We do something because of this.
+@file name [OPTS]
+@{<<scrap-name>>@}
+#+END_src
+
+The @file directive specifies the file to which the code listing belongs, 
+indicated by @{ and @}. In a listing we can then reference scraps defined in
+this code file or other code files.
+
+But this raises some further questions:
+- How to avoid name clashes if we have scraps that are named the same but
+  are defined in different files?
+  - Namespaces? i.e. ns.scrap-name
+
+** Let's try that
+We are going to write a quick 'n dirty prototype to get a feel for the
+above idea. For that we're using Racket[fn:2], because it allows for rapid
+prototyping through its REPL, standard library and very good documentation.
+
+*** The example code and documentation
+As an example language, for the code we want to document, we will use Go.
+The example code:
+
+#+BEGIN_src go :export code :tangle ./example.go
+  package main
+
+  import "fmt"
+
+  //@scrap print_to_stdout
+  func doSomething() {
+    fmt.Println("Hello world")
+  }
+  //@scrap
+
+  func main() {
+    doSomething()
+  }
+#+END_src
+
+And the documentation contains the following:
+
+#+BEGIN_SRC latex :export code :tangle ./example_doc.tex
+  Testing an idea:
+  @file example.go
+  @{<<print_to_stdout@}
+#+END_SRC
+
+* Existing tools in the literate programming world
+In this section we're going to take a closer look at two language agnostic
+tools that facilitate literate programming, and the powerful emacs+org-mode
+combination. In the last part of the section
+we peek at other tools and editors for specific languages. We do this to see
+how literate programming is being done with these tools and to get some ideas
+on how we can solve our stated problem. Note that there a many other tools
+out there. A broader list of tools can be found at [[http://www.literateprogramming.com/tools.html][literateprogramming.com]].
+
+Why not WEB or CWEB, they are the source of literate programming? Both of
+them are bound to a specific language. The former Pascal+Latex and the latter
+C+Latex. And they are fairly complex. Furthermore is noweb heavily influnced
+by these two thus it should suffice to only consider noweb and because we are
+want to have a language agnostic solution. And we take a closer look at nuweb
+because it has a fairly lightweight directive set compared to noweb.
+
+** noweb
+** nuweb
+** emacs + org-mode
+** Others
+*** Scribble
+Scribble[fn:3] is a documentation tool that can output the resulting document
+in HTML, LaTex and other formats. It's mainly used to produce the Racket
+documentation. It's quite easy to learn and one can use functions defined
+in Racket to insert results in the document. This is a powerful feature
+and might also allow for the possibility to implement a more sophisticated
+literate programming tool than the scribble/lp2[fn:4] module, which is limited to 
+racket.
+*** literate-programming
+*** Sweave
+
+* Footnotes
+[fn:1]https://golang.org/
+[fn:2]http://racket-lang.org/
+[fn:3]http://docs.racket-lang.org/scribble/
+[fn:4]http://docs.racket-lang.org/scribble/lp.html
