@@ -93,6 +93,17 @@ And the documentation contains the following:
   @{<<print_to_stdout@}
 #+END_SRC
 
+*** The prototype in Racket
+The *2htdp/batch-io* module provides a couple of functions for reading
+a file in batches in different ways. Let's first see what we actually
+need to achieve.
++ Read the code file into memory
++ Parse the code file and match for scrap directive
++ Save scrap directive
++ Read the doc file into memory
++ Parse the doc file and match for directives
++ Insert scrap into doc file
+
 * Existing tools in the literate programming world
 In this section we're going to take a closer look at two language agnostic
 tools that facilitate literate programming, and the powerful emacs+org-mode
@@ -108,6 +119,8 @@ C+Latex. And they are fairly complex. Furthermore is noweb heavily influnced
 by these two thus it should suffice to only consider noweb and because we are
 want to have a language agnostic solution. And we take a closer look at nuweb
 because it has a fairly lightweight directive set compared to noweb.
+
+NOTE: We have to look at WEB!!
 
 ** noweb
 ** nuweb
